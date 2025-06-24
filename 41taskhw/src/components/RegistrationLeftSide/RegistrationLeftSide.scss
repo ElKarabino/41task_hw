@@ -1,0 +1,58 @@
+.RegistrationLeftSide {
+    position: relative;
+    width: 800px;
+    height: 1024px;
+}
+
+.RegistrationLeftSide_img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.RegistrationLeftSide_title {
+    position: absolute;
+    top: 100px;
+    left: 66px;
+    font-family: Poppins, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    line-height: 100%;
+    margin: 0;
+}
+.RegistrationLeftSide_description{
+    position: absolute;
+    top: 433px;
+    left: 66px;
+    font-family: Poppins, sans-serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+    width: 598px;
+    line-height: 150%;
+    margin: 0;
+}
+.RegistrationLeftSide_wrapper{
+    position: absolute;
+    top: 941px;
+    left: 66px;
+    width: 300px;
+}
+.RegistrationLeftSide_person {
+    font-family: Poppins, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    line-height: 100%;
+    margin: 0;
+}
+.RegistrationLeftSide_job {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: white;
+    line-height: 100%;
+    margin: 0;
+}
