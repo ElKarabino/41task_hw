@@ -1,0 +1,19 @@
+.RegistrationForm {
+    padding: 0 100px 0 100px;
+    height: 1024px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+}
+.RegistrationForm_input_wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.RegistrationForm_buttons_wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
