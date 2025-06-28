@@ -1,9 +1,9 @@
 import "./CustomInput.scss"
 
-export const CustomInput = ({placeholder , type}) => {
+export const CustomInput = ({placeholder , type = 'text', isLight}) => {
     return (
         <input 
-            className="CustomInput"
+            className={`CustomInput ${isLight ? 'light' : 'dark'}`}
             placeholder={placeholder}
             type={type}
         />
