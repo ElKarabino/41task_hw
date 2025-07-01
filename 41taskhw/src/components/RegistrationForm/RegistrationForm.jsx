@@ -8,13 +8,19 @@ import "./RegistrationForm.scss"
 
 export const RegistrationForm = () => {
     const [isLight , setIsLight] = useState(true);
-    const [isGoogleLight, setIsGoogleLight] = useState(false);
-    const toggleTheme = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const writeAccountInfo = () => {
+        console.log('Name:', name);
+        console.log('Email:', email);
+        console.log('Password:', password);
+    }
+     const toggleTheme = () => {
         setIsLight(!isLight)
     }
-     const toggleGoogleIcon = () => {
-        setIsGoogleLight(!isGoogleLight);
-    };
+
     return (
         <div className={`RegistrationForm ${isLight ? 'light' : 'dark'}`}>  
             <div className="RegistrationForm_title_wrapper">
@@ -25,28 +31,36 @@ export const RegistrationForm = () => {
                 <CustomInput 
                     placeholder="Name" 
                     isLight={isLight}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 />
                 <CustomInput 
                     placeholder="Email" 
                     type="email" 
                     isLight={isLight}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <CustomInput 
                     placeholder="Password" 
                     type="password" 
-                    isLight={isLight}       
+                    isLight={isLight}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}       
                 />
             </div>
             <div className="RegistrationForm_buttons_wrapper">
                 <CustomButton 
                     text="Create account" 
-                    isLight={isLight} />
+                    isLight={isLight}
+                    onClick={writeAccountInfo} 
+                />
                 <CustomButton 
                     icon={isLight ? <LightGoogleIcon /> : <DarkGoogleIcon  />}   
                     text="Sign up with Google" 
                     theme="dark"
-                    toggleGoogleIcon={toggleGoogleIcon}
-                    isLight={isLight}/> 
+                    isLight={isLight}
+                /> 
                     
             </div>
             <div className="RegistrationForm_sign_wrapper">
@@ -56,7 +70,6 @@ export const RegistrationForm = () => {
             </div>
             <ThemeButton 
                 toggleTheme={toggleTheme}
-                toggleGoogleIcon={toggleGoogleIcon} 
                 isLight={isLight}    
             />
         </div>

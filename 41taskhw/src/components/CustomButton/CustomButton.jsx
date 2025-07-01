@@ -1,10 +1,10 @@
 import "./CustomButton.scss"
 
-export const CustomButton = ({icon, text, toggleGoogleIcon, isLight}) => {
+export const CustomButton = ({icon, text, toggleGoogleIcon, isLight, onClick}) => {
     return (
         <button 
             className={`CustomButton ${isLight ? 'light' : 'dark'}`} 
-            onClick={toggleGoogleIcon}>
+            onClick={onClick}>
             {icon && <span>{icon}</span>}
             {text && <span>{text}</span>}
         </button>
