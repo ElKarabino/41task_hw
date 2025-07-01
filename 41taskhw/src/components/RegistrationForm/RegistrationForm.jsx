@@ -42,11 +42,11 @@ export const RegistrationForm = () => {
                     text="Create account" 
                     isLight={isLight} />
                 <CustomButton 
-                    icon={isGoogleLight ? <LightGoogleIcon /> : <DarkGoogleIcon  />}   
+                    icon={isLight ? <LightGoogleIcon /> : <DarkGoogleIcon  />}   
                     text="Sign up with Google" 
                     theme="dark"
                     toggleGoogleIcon={toggleGoogleIcon}
-                    isLight={!isLight}/> 
+                    isLight={isLight}/> 
                     
             </div>
             <div className="RegistrationForm_sign_wrapper">
