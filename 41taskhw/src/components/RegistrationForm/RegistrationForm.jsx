@@ -5,6 +5,7 @@ import { CustomButton } from "../CustomButton/CustomButton"
 import { CustomInput } from "../CustomInput/CustomInput"
 import { ThemeButton } from "../ThemeButton/ThemeButton"
 import "./RegistrationForm.scss"
+import { Link } from "react-router-dom"
 
 export const RegistrationForm = () => {
     const [isLight , setIsLight] = useState(true);
