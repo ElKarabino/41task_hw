@@ -1,15 +1,15 @@
-import logo from './logo.svg';
+
 import './App.css';
-import { RegistrationPage } from './components/RegistrationPage/RegistrationPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ProductPage } from './pages/ProductPage';
+import { ProductPage } from './pages/ProductPage/ProductPage';
+import { RegistrationPage } from './pages/RegistrationPage/RegistrationPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<RegistrationPage/>}/>
-        <Route path='/ProductPage' element={<ProductPage/>}/>
+        <Route path='/products' element={<ProductPage/>}/>
       </Routes>
     </BrowserRouter>
   );

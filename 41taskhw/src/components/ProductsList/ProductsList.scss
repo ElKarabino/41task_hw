@@ -8,3 +8,10 @@
     font-weight: 500;
     color: black;
 }
+.ProductsList_wrapper {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
