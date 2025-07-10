@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { ProductItem } from "../ProductsItem/ProductsItem"
 import "./ProductsList.scss"
+import { ProductItem } from "../ProductItem/ProductItem"
 
 
 export const ProductsList = () => {

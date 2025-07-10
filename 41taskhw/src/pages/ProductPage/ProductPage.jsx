@@ -4,8 +4,9 @@ import { ProductsList } from "../../components/ProductsList/ProductsList"
 export const ProductPage = () => {
     return (
         <div>
-            <header></header>
-            <Link className="Link" to="/">Registration Page</Link>
+            <header>
+                <Link className="Link" to="/">Registration Page</Link>
+            </header>
             <ProductsList />
             <footer></footer>
         </div>

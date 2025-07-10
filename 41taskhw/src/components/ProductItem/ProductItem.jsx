@@ -1,5 +1,6 @@
-import {  ProductsItemButton } from '../ProductsItemButton/ProductsItemButton'
-import './ProductsItem.scss'
+import { Link } from 'react-router-dom'
+import {  ProductItemButton } from '../ProductItemButton/ProductItemButton'
+import './ProductItem.scss'
 
 export const ProductItem = ({product}) => {
     return (
@@ -18,8 +19,10 @@ export const ProductItem = ({product}) => {
                 </div>
             </div> 
             <div className='ProductItem_buttons'>
-                <ProductsItemButton text="Add To Cart" theme='blue'/>
-                <ProductsItemButton text="Show more" theme='white'/>
+                <ProductItemButton text="Add To Cart" theme='blue'/>
+                <Link key={product.id} to={`/products/${product.id}`} >
+                    <ProductItemButton text="Show more" theme='white' />
+                </Link>  
             </div>
         </li>
     )
