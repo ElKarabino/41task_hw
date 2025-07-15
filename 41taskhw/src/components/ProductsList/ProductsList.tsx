@@ -2,9 +2,19 @@ import { useEffect, useState } from "react"
 import "./ProductsList.scss"
 import { ProductItem } from "../ProductItem/ProductItem"
 
+type Product = {
+    id: number,
+    title: string,
+    price: number,
+    description: string,
+    category: string,
+    rating: number,
+    images: string,
+    shippingInformation: string,
+}
 
 export const ProductsList = () => {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState<Product[]>([])
     useEffect(() => {
         fetch('https://dummyjson.com/products?limit=5')
         .then(res => res.json())

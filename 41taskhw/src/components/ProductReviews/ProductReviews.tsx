@@ -1,6 +1,17 @@
 import "./ProductReviews.scss"
+ 
+type Review = {
+    rating: number,
+    comment: string,
+    reviewerName: string,
+    date: string,
+}
 
-export const ProductReviews = ({reviews = []}) =>  {
+type ProductReviewsProps = {
+  reviews: Review[];
+};
+
+export const ProductReviews = ({reviews = []}:ProductReviewsProps) =>  {
     return (
         <div className="ProductReviews"> 
             <h3>Reviews</h3>

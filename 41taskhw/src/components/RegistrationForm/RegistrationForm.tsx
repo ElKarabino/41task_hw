@@ -6,11 +6,12 @@ import { CustomInput } from "../CustomInput/CustomInput"
 import { ThemeButton } from "../ThemeButton/ThemeButton"
 import "./RegistrationForm.scss"
 
+
 export const RegistrationForm = () => {
-    const [isLight , setIsLight] = useState(true);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [isLight , setIsLight] = useState<boolean>(true);
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
     const writeAccountInfo = () => {
         console.log('Name:', name);
@@ -58,8 +59,8 @@ export const RegistrationForm = () => {
                 <CustomButton 
                     icon={isLight ? <LightGoogleIcon /> : <DarkGoogleIcon  />}   
                     text="Sign up with Google" 
-                    theme="dark"
                     isLight={isLight}
+                    
                 /> 
                     
             </div>

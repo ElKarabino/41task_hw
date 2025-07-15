@@ -1,6 +1,14 @@
+import { MouseEventHandler, ReactElement } from "react"
 import "./CustomButton.scss"
 
-export const CustomButton = ({icon, text, toggleGoogleIcon, isLight, onClick}) => {
+type CustomButtonProps = {
+    icon?: ReactElement,
+    text: string,
+    isLight: boolean,
+    onClick?: MouseEventHandler,
+}
+
+export const CustomButton = ({icon, text, isLight, onClick}:CustomButtonProps) => {
     return (
         <button 
             className={`CustomButton ${isLight ? 'light' : 'dark'}`} 

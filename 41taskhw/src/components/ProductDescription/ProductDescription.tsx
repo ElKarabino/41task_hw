@@ -2,12 +2,34 @@ import { ProductItemButton } from "../ProductItemButton/ProductItemButton"
 import { ProductReviews } from "../ProductReviews/ProductReviews"
 import "./ProductDescription.scss"
 
-export const ProductDescription = ({product}) => {
+type Review = {
+    rating: number,
+    comment: string,
+    reviewerName: string,
+    date: string,
+}
+
+
+type Product = {
+    images: string[],
+    title: string,
+    price: number,
+    category: string,
+    rating: number,
+    description: string,
+    reviews: Review[],
+}
+
+type ProductDescriptionProps = {
+    product: Product,
+}
+
+export const ProductDescription = ({product}:ProductDescriptionProps) => {
     return (   
         <div>
             <div className="ProductDescription_wrapper">
                 <div className="ProductDescription_image">
-                    <img src={product?.images[0] || null} alt="img"/>
+                    <img src={product?.images[0] || ""} alt="img"/>
                 </div>
                 <div>
                     <div className="ProductDescription_title">

@@ -2,11 +2,24 @@ import { Link } from 'react-router-dom'
 import {  ProductItemButton } from '../ProductItemButton/ProductItemButton'
 import './ProductItem.scss'
 
-export const ProductItem = ({product}) => {
+type Product = {
+    id: number,
+    images: string,
+    title: string,
+    shippingInformation: string,
+    rating: number,
+    price: number,
+}
+
+type ProductProps = {
+    product: Product,
+}
+
+export const ProductItem = ({product}:ProductProps) => {
     return (
         <li key={product.id} className='ProductItem'>
             <div className='ProductItem_img'>
-                <img src={product.images} alt="product" />
+                <img src={product.images || ""} alt="product"  />
             </div>
             <div className='ProductItem_desc'>
                 <div className='ProductItem_desc_left'>
@@ -21,7 +34,7 @@ export const ProductItem = ({product}) => {
             <div className='ProductItem_buttons'>
                 <ProductItemButton text="Add To Cart" theme='blue'/>
                 <Link key={product.id} to={`/products/${product.id}`} >
-                    <ProductItemButton text="Show more" theme='white' />
+                    <ProductItemButton text="Show more" theme='white'/>
                 </Link>  
             </div>
         </li>
