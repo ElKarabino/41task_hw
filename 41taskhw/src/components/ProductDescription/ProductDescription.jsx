@@ -1,5 +1,5 @@
 import { ProductItemButton } from "../ProductItemButton/ProductItemButton"
-import { ProductRewiews } from "../ProductReviews/ProductReviews"
+import { ProductReviews } from "../ProductReviews/ProductReviews"
 import "./ProductDescription.scss"
 
 export const ProductDescription = ({product}) => {
@@ -25,7 +25,7 @@ export const ProductDescription = ({product}) => {
                     <ProductItemButton text="Add To Cart" theme='blue'/>
                 </div>
             </div>
-            <ProductRewiews reviews={product?.reviews}/>
+            <ProductReviews reviews={product?.reviews}/>
         </div>
     )
 }

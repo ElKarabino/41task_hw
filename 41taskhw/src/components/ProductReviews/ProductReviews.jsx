@@ -1,6 +1,6 @@
 import "./ProductReviews.scss"
 
-export const ProductRewiews = ({reviews}) =>  {
+export const ProductReviews = ({reviews = []}) =>  {
     return (
         <div className="ProductReviews"> 
             <h3>Reviews</h3>
