@@ -1,6 +1,9 @@
+import { useDispatch } from "react-redux"
 import { ProductItemButton } from "../ProductItemButton/ProductItemButton"
+import { ProductPopup } from "../ProductPopup/ProductPopup"
 import { ProductReviews } from "../ProductReviews/ProductReviews"
 import "./ProductDescription.scss"
+import { openModal } from "../../features/productPopupSlice"
 
 type Review = {
     rating: number,
@@ -25,11 +28,20 @@ type ProductDescriptionProps = {
 }
 
 export const ProductDescription = ({product}:ProductDescriptionProps) => {
+
+    const dispatch = useDispatch();
+
+    const handleImageClick = () => {
+        if (product?.images?.[0]) {
+            dispatch(openModal(product.images[0]));
+        }
+    };
     return (   
         <div>
+            <ProductPopup />
             <div className="ProductDescription_wrapper">
                 <div className="ProductDescription_image">
-                    <img src={product?.images[0] || ""} alt="img"/>
+                    <img src={product?.images[0] || ""} alt="img" onClick={handleImageClick}/>
                 </div>
                 <div>
                     <div className="ProductDescription_title">

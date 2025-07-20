@@ -1,0 +1,39 @@
+.ProductPopup {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.ProductPopup_content {
+    background: white;
+    height: 500px;
+    position: relative;
+     img {
+        height: 500px;  
+        width: 500px;
+     }  
+}
+.ProductPopup_close_button {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
+.first_close_line {
+    position: absolute; 
+    width: 25px;
+    height: 2px;
+    background: black;
+    left: 25%;
+    transform: rotate(45deg);
+}
+.second_close_line {
+    position: absolute; 
+    width: 25px;
+    height: 2px;
+    background: black;
+    left: 25%;
+    transform: rotate(135deg)
+}
