@@ -1,21 +1,20 @@
 import { Link } from 'react-router-dom'
 import {  ProductItemButton } from '../ProductItemButton/ProductItemButton'
 import './ProductItem.scss'
-
-type Product = {
-    id: number,
-    images: string,
-    title: string,
-    shippingInformation: string,
-    rating: number,
-    price: number,
-}
+import { useDispatch } from 'react-redux'
+import { addItem } from '../../features/basketSlice'
+import {Product} from '../../types/product'
 
 type ProductProps = {
     product: Product,
 }
 
 export const ProductItem = ({product}:ProductProps) => {
+    const dispatch = useDispatch();
+
+    const addToBasket = () => {
+        dispatch(addItem(product))
+    }
     return (
         <li key={product.id} className='ProductItem'>
             <div className='ProductItem_img'>
@@ -32,7 +31,11 @@ export const ProductItem = ({product}:ProductProps) => {
                 </div>
             </div> 
             <div className='ProductItem_buttons'>
-                <ProductItemButton text="Add To Cart" theme='blue'/>
+                <ProductItemButton 
+                    text="Add To Cart" 
+                    theme='blue'
+                    onClick={addToBasket}
+                    />
                 <Link key={product.id} to={`/products/${product.id}`} >
                     <ProductItemButton text="Show more" theme='white'/>
                 </Link>  

@@ -15,8 +15,8 @@ export const ProductPopup = () => {
                     src={imageUrl}
                     />
                 <div 
-                className="ProductPopup_close_button"
-                onClick={() => dispatch(closeModal()) }
+                    className="ProductPopup_close_button"
+                    onClick={() => dispatch(closeModal()) }
                 >
                     <span className="first_close_line"></span>
                     <span className="second_close_line"></span>
