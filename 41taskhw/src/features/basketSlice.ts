@@ -19,5 +19,5 @@ const basketSlice = createSlice({
     }
 })
 
-export const {addItem} = basketSlice.actions
+export const { addItem } = basketSlice.actions
 export default basketSlice.reducer
