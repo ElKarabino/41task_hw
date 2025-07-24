@@ -18,7 +18,7 @@ export const ProductItem = ({product}:ProductProps) => {
     return (
         <li key={product.id} className='ProductItem'>
             <div className='ProductItem_img'>
-                <img src={product.images || ""} alt="product"  />
+                <img src={product?.images?.[0] || ""} alt="product"  />
             </div>
             <div className='ProductItem_desc'>
                 <div className='ProductItem_desc_left'>
