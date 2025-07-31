@@ -1,9 +1,10 @@
     import { createSlice } from "@reduxjs/toolkit"
-    import { getProducts } from "./storeThunk"
+    import { getProductDesc, getProducts } from "./storeThunk"
 
     const initialState = {
         productData: [],
         productList: [],
+        productDesc: null,
     }
 
     export const productsSlice = createSlice({
@@ -24,6 +25,9 @@
                     productList: action.payload
                 }
             })
+            .addCase(getProductDesc.fulfilled, (state, action) => {
+            state.productDesc = action.payload;
+      })
         }
     })
 
