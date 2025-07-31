@@ -1,31 +1,53 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { DarkGoogleIcon } from "../../assets/svg/DarkGoogleIcon"
 import { LightGoogleIcon } from "../../assets/svg/LightGoogleIcon"
 import { CustomButton } from "../CustomButton/CustomButton"
 import { CustomInput } from "../CustomInput/CustomInput"
 import { ThemeButton } from "../ThemeButton/ThemeButton"
-import "./RegistrationForm.scss"
+import "./LoginForm.scss"
+import { useDispatch, useSelector } from "react-redux"
+import { loginThunk } from "../../features/login/loginThunk"
+import { useNavigate } from "react-router-dom"
+import { selectIsAuth } from "../../features/login/loginSlice"
 
 
-export const RegistrationForm = () => {
-    const [isLight , setIsLight] = useState<boolean>(true);
-    const [name, setName] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+export const LoginForm = () => {
 
-    const writeAccountInfo = () => {
-        console.log('Name:', name);
-        console.log('Email:', email);
-        console.log('Password:', password);
+    const isAuth = useSelector(selectIsAuth)
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(isAuth) {
+            navigate('/products')
+        }
+    }, [isAuth])
+
+    const [isLight , setIsLight] = useState(true);
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const handleInputName = (event) => {
+       setName(event.target.value)
     }
-     const toggleTheme = () => {
+    const handleInputPassword = (event) => {
+       setPassword(event.target.value)
+    }
+    const handleButton = (event) => {
+        event.preventDefault()
+        const data = {
+            username: name,
+            password: password,
+        }
+        dispatch(loginThunk(data))
+    }
+    const toggleTheme = () => {
         setIsLight(!isLight)
     }
 
     return (
         <div className={`RegistrationForm ${isLight ? 'light' : 'dark'}`}>  
             <div className="RegistrationForm_title_wrapper">
-                <h3 className="RegistrationForm_title">Create an account</h3>
+                <h3 className="RegistrationForm_title">Sign in</h3>
                 <p className="RegistrationForm_title_descritption">Let’s get started with your 30 days free trial</p>
             </div>
             <div className="RegistrationForm_input_wrapper">
@@ -33,36 +55,23 @@ export const RegistrationForm = () => {
                     placeholder="Name" 
                     isLight={isLight}
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <CustomInput 
-                    placeholder="Email" 
-                    type="email" 
-                    isLight={isLight}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleInputName}
                 />
                 <CustomInput 
                     placeholder="Password" 
                     type="password" 
                     isLight={isLight}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}       
+                    onChange={handleInputPassword}       
                 />
             </div>
             <div className="RegistrationForm_buttons_wrapper">
                 <CustomButton 
-                    text="Create account" 
-                    isLight={isLight}
-                    onClick={writeAccountInfo} 
-                />
-                <CustomButton 
                     icon={isLight ? <LightGoogleIcon /> : <DarkGoogleIcon  />}   
-                    text="Sign up with Google" 
+                    text="Sign in" 
                     isLight={isLight}
-                    
-                /> 
-                    
+                    onClick={handleButton}
+                />  
             </div>
             <div className="RegistrationForm_sign_wrapper">
                 <p>Already have an account?  
