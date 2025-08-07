@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginThunk } from "./loginThunk";
+import { getLoggedUserThunk, loginThunk } from "./loginThunk";
 
 export const loginSlice = createSlice({
     name: 'login',
     initialState: {
-        isAuth: false
+        user: null,
+        isAuth: false,  
     },
     reducers: {
         setLogin: (state, action) => {
@@ -12,17 +13,34 @@ export const loginSlice = createSlice({
                 ...state,
                 isAuth: action.payload,
             }
+        },
+        logout: (state) => {
+            localStorage.removeItem("token");
+            localStorage.removeItem("refreshToken");
+           return {
+            ...state,
+            isAuth: false,
+            user: null,
+           }
+
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(loginThunk.fulfilled, (state, action) => {
-        state.isAuth = true;
-    });
+        builder
+        .addCase(loginThunk.fulfilled, (state, action) => {
+            state.isAuth = true;
+            state.user = action.payload;    
+        })
+        .addCase(getLoggedUserThunk.fulfilled, (state, action) => {
+            state.isAuth = true;
+            state.user = action.payload;
+        })
   },
 })
 
-export const { setLogin } = loginSlice.actions
+export const { setLogin, logout } = loginSlice.actions
 
 export const selectIsAuth = (state) => state.login.isAuth;
+export const selectUser = (state) => state.login.user;
 
 export default loginSlice.reducer

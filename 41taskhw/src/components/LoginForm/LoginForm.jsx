@@ -6,7 +6,7 @@ import { CustomInput } from "../CustomInput/CustomInput"
 import { ThemeButton } from "../ThemeButton/ThemeButton"
 import "./LoginForm.scss"
 import { useDispatch, useSelector } from "react-redux"
-import { loginThunk } from "../../features/login/loginThunk"
+import { getLoggedUserThunk, loginThunk } from "../../features/login/loginThunk"
 import { useNavigate } from "react-router-dom"
 import { selectIsAuth } from "../../features/login/loginSlice"
 
@@ -38,7 +38,11 @@ export const LoginForm = () => {
             username: name,
             password: password,
         }
-        dispatch(loginThunk(data))
+        dispatch(loginThunk(data)).then((res) => {
+            if (res.meta.requestStatus === 'fulfilled') {
+        dispatch(getLoggedUserThunk());
+            }
+    });
     }
     const toggleTheme = () => {
         setIsLight(!isLight)
